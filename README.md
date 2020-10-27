@@ -17,7 +17,7 @@ I assume that the actual file would have been recoverable as well, but the 256px
 
 ## 5. Extracting user passwords
 
-The lsass.exe process can be exploited to gain access to the passwords of users. I managed to dump these hashes with the hashdump command, with SYSTEM and SAM hive addresses as parameters. Volatility documentation then suggests cracking these hashes, but I assumed that a >20 character hash is not worth a try - although it would be interesting to know how much time it would take if one would rent an instance with a huge amount of GPUs from Amazon or another cloud computing provider.
+The lsass.exe process can be exploited to gain access to the passwords of users. I managed to dump these hashes with the hashdump command, with SYSTEM and SAM hive addresses as parameters. Volatility documentation then suggests cracking these hashes, but I assumed that a >20 character hash is not worth a try.
 
 Mimikatz is a tool able to extract plaintext passwords instead of hashes - it was made famous at the very least by being a major component of the NotPetya attacks (along with EternalBlue). It made the job very easy - even having a plugin for Volatility. I simply installed it and ran it on the memory dump and found the flag right there: NIXU{was_it_even_hard_for_you?}.
 
