@@ -4,7 +4,7 @@ Tried out a little memory forensics, flags for Bad Memories parts 1, 3 and 5. I 
 ## 1. Recovering Documentation
 By listing all the processes that were running at the time of the memory dump (with pslist/ psscan/pstree commands in Volatility) it can be seen that the user was running notepad.exe. It is then easy to use the command memdump -p 700, which dumps the memory of the process with the right pid into a dmp file.
 
-I then searched for text inside this .dmp with BBEdit (I realised I should switch on the right encoding half way in), almost giving up after not finding anything with any regexp I could think of. The following day, when browsing results of another CTF, it occurred to me to try (harder) searching for encoded strings: I searched for “Nixu{“ in various encodings. ROT13 was the right one: “Avkh{“. The flag is NIXU{this_w4s_th3_easy_one}.
+I then searched for text inside this .dmp with BBEdit (I realised I should switch on the right encoding half way in), almost giving up after not finding anything with any regexp I could think of. The following day, when browsing results of another CTF, it occurred to me to try (harder) searching for strings encoded as ROT13: “Avkh{“. The flag is NIXU{this_w4s_th3_easy_one}.
 
 ![Flag found from within the .dmp](scr1.png)
   
